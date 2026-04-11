@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Liangcheng International Limited | 良程国际有限公司</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;600;700&family=Noto+Sans+SC:wght@300;400;500&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --gold:#D4A843;--gold-light:#F0D080;--ink:#1C2333;--ink-soft:#243044;
+  --paper:#FAFCFF;--paper-warm:#F2F6FC;--muted:#5A6478;--border:#D0D8E8;--section-pad:120px;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Cormorant Garamond',serif;background:var(--paper);color:var(--ink);font-weight:300;line-height:1.8;overflow-x:hidden}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 60px;height:72px;display:flex;align-items:center;justify-content:space-between;background:rgba(250,252,255,0.93);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
+.nav-logo{font-family:'Cormorant Garamond',serif;font-size:1.05rem;font-weight:600;letter-spacing:0.12em;color:var(--ink);text-decoration:none;display:flex;flex-direction:column;line-height:1.2}
+.nav-logo span{font-family:'Cormorant Garamond',serif;font-size:0.6rem;font-weight:300;letter-spacing:0.2em;color:var(--muted)}
+.nav-right{display:flex;align-items:center;gap:36px}
+.nav-links{display:flex;gap:36px;list-style:none}
+.nav-links a{font-size:0.72rem;letter-spacing:0.15em;color:var(--muted);text-decoration:none;transition:color 0.2s;font-weight:400;font-family:'Cormorant Garamond',serif}
+.nav-links a:hover{color:var(--gold)}
+.lang-switch{display:flex;align-items:center;gap:0;border:1px solid var(--border);border-radius:2px;overflow:hidden;flex-shrink:0}
+.lang-switch a{font-size:0.65rem;letter-spacing:0.12em;padding:6px 14px;text-decoration:none;transition:all 0.2s;font-weight:400;font-family:'Cormorant Garamond',serif}
+.lang-switch .lang-active{background:var(--gold);color:#fff;font-weight:500}
+.lang-switch .lang-inactive{color:var(--muted);background:transparent}
+.lang-switch .lang-inactive:hover{background:var(--paper-warm);color:var(--ink)}
+
+/* HERO */
+#hero{min-height:100vh;display:flex;align-items:center;position:relative;overflow:hidden;background:#131C2E;padding:0 60px}
+.hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 60% 80% at 70% 50%,rgba(212,168,67,.12) 0%,transparent 70%),radial-gradient(ellipse 40% 60% at 20% 80%,rgba(60,100,200,.15) 0%,transparent 60%),linear-gradient(135deg,#131C2E 0%,#1C2845 50%,#131C2E 100%)}
+.hero-line{position:absolute;top:0;bottom:0;left:50%;width:1px;background:linear-gradient(to bottom,transparent,rgba(212,168,67,.25),transparent)}
+.hero-content{position:relative;z-index:2;max-width:800px;opacity:0;animation:fadeUp 1.2s .3s forwards}
+.hero-eyebrow{font-size:.85rem;letter-spacing:.35em;color:var(--gold);text-transform:uppercase;margin-bottom:32px;display:flex;align-items:center;gap:20px}
+.hero-eyebrow::before{content:'';display:block;width:40px;height:1px;background:var(--gold)}
+.hero-title{font-size:clamp(2.8rem,5vw,4.8rem);font-weight:300;color:#FAFCFF;line-height:1.2;letter-spacing:.02em;margin-bottom:16px}
+.hero-title em{font-style:italic;color:var(--gold)}
+.hero-subtitle{font-size:1.1rem;color:rgba(250,252,255,.45);letter-spacing:.12em;margin-bottom:48px;font-weight:300;font-family:'Cormorant Garamond',serif}
+.hero-desc{font-size:1rem;color:rgba(250,252,255,.6);line-height:2;max-width:580px;margin-bottom:56px;font-weight:300}
+.hero-cta{display:inline-flex;align-items:center;gap:16px;font-size:.72rem;letter-spacing:.2em;color:var(--gold);text-decoration:none;border:1px solid rgba(212,168,67,.4);padding:16px 36px;transition:all .3s;font-family:'Cormorant Garamond',serif}
+.hero-cta:hover{background:rgba(212,168,67,.08);border-color:var(--gold)}
+.hero-cta::after{content:'→';transition:transform .3s}
+.hero-cta:hover::after{transform:translateX(6px)}
+.hero-stats{position:absolute;right:60px;bottom:80px;display:flex;flex-direction:column;gap:32px;z-index:2;opacity:0;animation:fadeUp 1.2s .8s forwards}
+.hero-stat{text-align:right}
+.hero-stat-num{font-size:2.2rem;font-weight:300;color:var(--gold);line-height:1}
+.hero-stat-label{font-size:.6rem;letter-spacing:.2em;color:rgba(250,252,255,.4);margin-top:4px;font-family:'Cormorant Garamond',serif}
+.scroll-hint{position:absolute;bottom:40px;left:60px;display:flex;align-items:center;gap:12px;font-size:.62rem;letter-spacing:.2em;color:rgba(250,252,255,.3);z-index:2}
+.scroll-line{width:40px;height:1px;background:rgba(212,168,67,.3);position:relative;overflow:hidden}
+.scroll-line::after{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:var(--gold);animation:scrollLine 2s 1.5s infinite}
+@keyframes scrollLine{0%{left:-100%}100%{left:100%}}
+
+/* COMMON */
+section{padding:var(--section-pad) 60px}
+.section-label{font-size:.65rem;letter-spacing:.3em;color:var(--gold);text-transform:uppercase;margin-bottom:24px;display:flex;align-items:center;gap:16px;font-family:'Cormorant Garamond',serif}
+.section-label::before{content:'';display:block;width:24px;height:1px;background:var(--gold)}
+.section-title{font-size:clamp(1.8rem,3vw,2.8rem);font-weight:300;line-height:1.3;letter-spacing:.02em;margin-bottom:20px}
+.section-lead{font-size:1rem;color:var(--muted);max-width:680px;line-height:2}
+.gold-divider{width:48px;height:1px;background:var(--gold);margin:32px 0}
+
+/* ABOUT */
+#about{background:var(--paper)}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;margin-top:64px}
+.about-text p{font-size:1rem;color:var(--muted);line-height:2.2;margin-bottom:20px}
+.about-pillars{display:flex;flex-direction:column;gap:1px;background:var(--border)}
+.pillar{background:var(--paper);padding:28px 32px;display:flex;align-items:flex-start;gap:20px;transition:background .2s}
+.pillar:hover{background:var(--paper-warm)}
+.pillar-num{font-size:2rem;font-weight:300;color:var(--gold-light);line-height:1;min-width:40px}
+.pillar-text strong{display:block;font-size:.78rem;letter-spacing:.1em;color:var(--ink);font-weight:600;margin-bottom:4px;font-family:'Cormorant Garamond',serif}
+.pillar-text span{font-size:.85rem;color:var(--muted)}
+
+/* SERVICES */
+#services{background:#1C2845;color:var(--paper)}
+#services .section-lead{color:rgba(250,252,255,.5)}
+.services-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:rgba(255,255,255,.06);margin-top:64px}
+.service-card{background:#1C2845;padding:56px 48px;position:relative;overflow:hidden;transition:background .3s;cursor:default}
+.service-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform .4s}
+.service-card:hover{background:#243258}
+.service-card:hover::before{transform:scaleX(1)}
+.service-icon{font-size:1.8rem;margin-bottom:28px;filter:grayscale(1) brightness(1.5);transition:filter .3s}
+.service-card:hover .service-icon{filter:none}
+.service-num{position:absolute;top:32px;right:40px;font-size:4rem;font-weight:300;color:rgba(255,255,255,.04);line-height:1}
+.service-tag{font-size:.6rem;letter-spacing:.25em;color:var(--gold);text-transform:uppercase;margin-bottom:16px;font-family:'Cormorant Garamond',serif}
+.service-card h3{font-size:1.5rem;font-weight:400;color:var(--paper);margin-bottom:20px;letter-spacing:.02em;line-height:1.3}
+.service-card p{font-size:.92rem;color:rgba(250,252,255,.55);line-height:2;margin-bottom:28px}
+.service-items{list-style:none;display:flex;flex-direction:column;gap:8px}
+.service-items li{font-size:.85rem;color:rgba(250,252,255,.4);display:flex;align-items:center;gap:10px}
+.service-items li::before{content:'';display:block;width:16px;height:1px;background:rgba(212,168,67,.4);flex-shrink:0}
+.service-link{display:inline-flex;align-items:center;gap:8px;margin-top:32px;font-size:.72rem;letter-spacing:.15em;color:var(--gold);text-decoration:none;border-bottom:1px solid rgba(212,168,67,.3);padding-bottom:4px;transition:all .2s}
+.service-link:hover{border-color:var(--gold);gap:14px}
+
+/* TOURISM */
+#tourism{background:var(--paper-warm);position:relative;overflow:hidden}
+#tourism::before{content:'EUROPE';position:absolute;right:-40px;top:50%;transform:translateY(-50%);font-size:14rem;font-weight:300;color:rgba(212,168,67,.07);letter-spacing:-.05em;white-space:nowrap;pointer-events:none}
+.tourism-inner{display:grid;grid-template-columns:5fr 4fr;gap:80px;align-items:start}
+.tourism-badge{display:inline-flex;align-items:center;gap:8px;background:var(--gold);color:var(--ink);font-size:.6rem;letter-spacing:.2em;padding:8px 20px;margin-bottom:40px;font-family:'Cormorant Garamond',serif}
+.tourism-features{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);margin-top:48px}
+.tf{background:var(--paper-warm);padding:28px 24px;transition:background .2s}
+.tf:hover{background:#fff}
+.tf-icon{font-size:1.2rem;margin-bottom:12px}
+.tf h4{font-size:.85rem;font-weight:600;letter-spacing:.06em;margin-bottom:6px;font-family:'Cormorant Garamond',serif}
+.tf p{font-size:.85rem;color:var(--muted);line-height:1.8}
+.tourism-aside{padding-top:80px}
+.tourism-aside-card{background:var(--ink-soft);color:var(--paper);padding:40px 36px;margin-bottom:1px}
+.tourism-aside-card h4{font-size:1.4rem;font-weight:300;color:var(--gold);margin-bottom:16px}
+.tourism-aside-card p{font-size:.88rem;color:rgba(250,252,255,.5);line-height:2}
+.region-list{list-style:none;margin-top:16px;display:flex;flex-direction:column;gap:8px}
+.region-list li{font-size:.85rem;color:rgba(250,252,255,.45);display:flex;align-items:center;gap:10px}
+.region-list li::before{content:'◆';font-size:.4rem;color:var(--gold)}
+
+/* ADVANTAGE */
+#advantage{background:var(--paper)}
+.adv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:48px;margin-top:64px}
+.adv-item{border-top:1px solid var(--border);padding-top:32px}
+.adv-num{font-size:3rem;font-weight:300;color:var(--gold-light);line-height:1;margin-bottom:20px}
+.adv-item h4{font-size:1rem;font-weight:600;letter-spacing:.06em;margin-bottom:12px;font-family:'Cormorant Garamond',serif}
+.adv-item p{font-size:.88rem;color:var(--muted);line-height:2}
+
+/* CONTACT */
+#contact{background:#1C2845;color:var(--paper);position:relative;overflow:hidden}
+#contact::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 50% 70% at 80% 50%,rgba(212,168,67,.08) 0%,transparent 70%)}
+.contact-inner{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;position:relative;z-index:1}
+.contact-heading{font-size:clamp(2rem,3.5vw,3rem);font-weight:300;line-height:1.3;letter-spacing:.02em;margin-bottom:24px}
+.contact-heading em{font-style:italic;color:var(--gold)}
+.contact-desc{font-size:.95rem;color:rgba(250,252,255,.5);line-height:2;max-width:440px}
+.contact-details{display:flex;flex-direction:column;gap:1px;background:rgba(255,255,255,.05)}
+.contact-item{background:rgba(255,255,255,.02);padding:28px 32px;display:flex;align-items:flex-start;gap:20px;transition:background .2s}
+.contact-item:hover{background:rgba(255,255,255,.05)}
+.contact-item-icon{width:36px;height:36px;border:1px solid rgba(212,168,67,.3);display:flex;align-items:center;justify-content:center;font-size:.9rem;flex-shrink:0;margin-top:2px}
+.contact-item-text label{display:block;font-size:.6rem;letter-spacing:.2em;color:var(--gold);text-transform:uppercase;margin-bottom:6px;font-family:'Cormorant Garamond',serif}
+.contact-item-text a,.contact-item-text p{font-size:.92rem;color:rgba(250,252,255,.7);text-decoration:none;line-height:1.6}
+.contact-item-text a:hover{color:var(--gold)}
+
+/* FOOTER */
+footer{background:#131C2E;padding:32px 60px;display:flex;align-items:center;justify-content:space-between;border-top:1px solid rgba(255,255,255,.06)}
+.footer-logo{font-size:.9rem;letter-spacing:.15em;color:rgba(250,252,255,.3)}
+.footer-copy{font-size:.65rem;letter-spacing:.1em;color:rgba(250,252,255,.2)}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+.reveal{opacity:0;transform:translateY(20px);transition:opacity .7s ease,transform .7s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+
+@media(max-width:900px){
+  nav{padding:0 20px}
+  .nav-links{display:none}
+  #hero,section{padding-left:24px;padding-right:24px}
+  .hero-stats{display:none}
+  .about-grid,.services-grid,.tourism-inner,.adv-grid,.contact-inner{grid-template-columns:1fr}
+  .tourism-features{grid-template-columns:1fr}
+  footer{flex-direction:column;gap:12px;text-align:center}
+  #tourism::before{display:none}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#hero" class="nav-logo">
+    Liangcheng International
+    <span>良程国际有限公司 · HONG KONG</span>
+  </a>
+  <div class="nav-right">
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#tourism">Travel</a></li>
+      <li><a href="#advantage">Why Us</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="lang-switch">
+      <a class="lang-inactive" href="liangcheng-cn.html">中文</a>
+      <a class="lang-active" href="liangcheng-en.html">EN</a>
+    </div>
+  </div>
+</nav>
+
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-line"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">HONG KONG · EUROPE · ASIA</div>
+    <h1 class="hero-title">Rooted in the Hub,<br><em>Reaching the World</em></h1>
+    <p class="hero-subtitle">良程国际有限公司 · Liangcheng International Limited</p>
+    <p class="hero-desc">Headquartered in Hong Kong, Liangcheng International leverages the unique advantages of a free port — open policy, free capital flow, and global connectivity — to deliver integrated cross-border services across Europe, Asia, and beyond.</p>
+    <a href="#services" class="hero-cta">Explore Our Services</a>
+  </div>
+  <div class="hero-stats">
+    <div class="hero-stat"><div class="hero-stat-num">4</div><div class="hero-stat-label">Core Business Sectors</div></div>
+    <div class="hero-stat"><div class="hero-stat-num">EU</div><div class="hero-stat-label">Local European Network</div></div>
+    <div class="hero-stat"><div class="hero-stat-num">HK</div><div class="hero-stat-label">International Finance Hub</div></div>
+  </div>
+  <div class="scroll-hint"><div class="scroll-line"></div>SCROLL TO EXPLORE</div>
+</section>
+
+<section id="about">
+  <div class="section-label">About Liangcheng International</div>
+  <h2 class="section-title">Open, Professional &amp;<br>Pragmatic — A Cross-Border Platform</h2>
+  <div class="about-grid">
+    <div class="about-text reveal">
+      <p>Incorporated in Hong Kong, Liangcheng International operates with the full benefit of a free economic system — policy flexibility, unrestricted capital movement, and seamless international connectivity. Free from conventional industry licensing constraints, we integrate resources and coordinate cross-border operations with agility.</p>
+      <p>Our core team brings together seasoned professionals with extensive European market experience and deep Asian market insight. Well-versed in international business conventions and multicultural environments, we excel at navigating complex cross-border projects and high-profile reception arrangements.</p>
+      <p>We serve major corporations, industry associations, and high-net-worth individuals, delivering bespoke, end-to-end solutions. With Hong Kong as our fulcrum, we bridge European and Asian resources — a trusted partner for international expansion, cultural exchange, and commercial value creation.</p>
+      <div class="gold-divider"></div>
+      <p style="font-size:1.15rem;color:var(--ink);font-style:italic;line-height:1.8">"Bridging European and Asian resources — your trusted partner for international growth."</p>
+    </div>
+    <div class="about-pillars reveal">
+      <div class="pillar"><div class="pillar-num">01</div><div class="pillar-text"><strong>Hong Kong Registered · Global Credibility</strong><span>Backed by the prestige of an international financial centre</span></div></div>
+      <div class="pillar"><div class="pillar-num">02</div><div class="pillar-text"><strong>Established European Network</strong><span>Years of on-the-ground presence across key European markets</span></div></div>
+      <div class="pillar"><div class="pillar-num">03</div><div class="pillar-text"><strong>Cross-Cultural Expert Team</strong><span>Bilingual, bicultural — seamless China–Europe coordination</span></div></div>
+      <div class="pillar"><div class="pillar-num">04</div><div class="pillar-text"><strong>Flexible Integration Model</strong><span>Beyond traditional licensing — agile, multi-sector operations</span></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="services">
+  <div class="section-label">Our Services</div>
+  <h2 class="section-title" style="color:var(--paper)">Four Core Sectors,<br>One Integrated Platform</h2>
+  <p class="section-lead">From business travel to cultural exchange, from trade to corporate consulting — Liangcheng International delivers end-to-end cross-border solutions through expert teams and local resources.</p>
+  <div class="services-grid">
+    <div class="service-card reveal">
+      <div class="service-num">01</div>
+      <div class="service-tag">TRAVEL &amp; HOSPITALITY</div>
+      <div class="service-icon">✈</div>
+      <h3>Cross-Border Business Travel</h3>
+      <p>Drawing on our mature European service network, we provide full-cycle support from itinerary design to on-the-ground execution — covering bespoke tours, corporate hospitality, trade fair support, and incentive travel.</p>
+      <ul class="service-items">
+        <li>Bespoke European tours &amp; immersive travel</li>
+        <li>Corporate hospitality &amp; VIP reception</li>
+        <li>International trade fair support</li>
+        <li>Incentive travel &amp; team-building programmes</li>
+      </ul>
+      <a href="#tourism" class="service-link">Learn More</a>
+    </div>
+    <div class="service-card reveal">
+      <div class="service-num">02</div>
+      <div class="service-tag">CULTURE &amp; EVENTS</div>
+      <div class="service-icon">🎭</div>
+      <h3>Cultural Exchange &amp; Project Planning</h3>
+      <p>Specialising in art exhibitions, cultural performances, academic exchanges, and brand event execution — we build bridges for cultural dialogue and commercial collaboration between China, Europe, and the world.</p>
+      <ul class="service-items">
+        <li>Art exhibition planning &amp; execution</li>
+        <li>Cultural performance &amp; tour coordination</li>
+        <li>Academic exchange &amp; study visit programmes</li>
+        <li>Brand event landing in Europe</li>
+      </ul>
+    </div>
+    <div class="service-card reveal">
+      <div class="service-num">03</div>
+      <div class="service-tag">TRADE &amp; COMMERCE</div>
+      <div class="service-icon">🌐</div>
+      <h3>International Trade</h3>
+      <p>Integrating premium European goods with Asian distribution channels, we facilitate import/export, brand agency, and supply chain alignment — enabling seamless two-way global commerce.</p>
+      <ul class="service-items">
+        <li>European specialty product import/export</li>
+        <li>Brand agency &amp; market development</li>
+        <li>Supply chain integration &amp; alignment</li>
+        <li>Asia–Europe two-way product flow</li>
+      </ul>
+    </div>
+    <div class="service-card reveal">
+      <div class="service-num">04</div>
+      <div class="service-tag">CONSULTING &amp; MANAGEMENT</div>
+      <div class="service-icon">♟</div>
+      <h3>Resource &amp; Corporate Management</h3>
+      <p>Tailored to the cross-border growth needs of enterprises, we provide international resource integration, project incubation, and strategic consulting — helping businesses reduce risk and sharpen their global competitive edge.</p>
+      <ul class="service-items">
+        <li>Cross-border expansion strategy</li>
+        <li>Overseas capital, talent &amp; technology access</li>
+        <li>Go-global training &amp; market research</li>
+        <li>Partner vetting &amp; project incubation</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="tourism">
+  <div class="tourism-inner">
+    <div class="reveal">
+      <div class="tourism-badge">✦ Featured Sector · Dedicated Promotion</div>
+      <div class="section-label">Cross-Border Business Travel</div>
+      <h2 class="section-title">Bespoke European Travel,<br>Premium Business Hospitality</h2>
+      <p class="section-lead">Liangcheng International is deeply embedded in the European business travel market. Through our established local network and professional hosting team, we deliver fully integrated travel solutions for industry associations and major corporate clients — from itinerary planning through to on-site accompaniment.</p>
+      <div class="tourism-features">
+        <div class="tf"><div class="tf-icon">🗺</div><h4>Bespoke Itinerary Planning</h4><p>Deeply personalised European journeys — every detail crafted to your brief</p></div>
+        <div class="tf"><div class="tf-icon">🤝</div><h4>Corporate Hospitality</h4><p>High-calibre business reception with exclusive local access</p></div>
+        <div class="tf"><div class="tf-icon">🏛</div><h4>Trade Fair Support</h4><p>Full-service assistance at major European exhibitions and trade shows</p></div>
+        <div class="tf"><div class="tf-icon">🎯</div><h4>Incentive &amp; Team-Building</h4><p>Corporate motivation trips and team programmes, end-to-end</p></div>
+      </div>
+    </div>
+    <div class="tourism-aside reveal">
+      <div class="tourism-aside-card">
+        <h4>Key Destinations</h4>
+        <p>Our local network spans the following regions:</p>
+        <ul class="region-list">
+          <li>Italy · Milan / Rome / Venice</li>
+          <li>France · Paris / Lyon / Cannes</li>
+          <li>Germany · Berlin / Frankfurt / Munich</li>
+          <li>Switzerland · Zurich / Geneva</li>
+          <li>Spain · Madrid / Barcelona</li>
+          <li>And many more European destinations</li>
+        </ul>
+      </div>
+      <div class="tourism-aside-card" style="margin-top:1px">
+        <h4>Who We Serve</h4>
+        <p>Industry association delegations · Senior corporate executives · High-net-worth private clients · Corporate incentive groups</p>
+      </div>
+      <div class="tourism-aside-card" style="margin-top:1px;background:rgba(212,168,67,.1)">
+        <h4 style="color:var(--gold-light)">Enquire About a Bespoke Plan</h4>
+        <p style="margin-bottom:16px">Every trip is treated as a dedicated project — from initial briefing to on-the-ground delivery, a dedicated specialist handles everything.</p>
+        <a href="#contact" style="display:inline-flex;align-items:center;gap:8px;font-size:.72rem;letter-spacing:.15em;color:var(--gold);text-decoration:none;border-bottom:1px solid rgba(212,168,67,.3);padding-bottom:4px">Get in Touch →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="advantage">
+  <div class="section-label">Why Liangcheng International</div>
+  <h2 class="section-title">Our Competitive Edge</h2>
+  <p class="section-lead">Hong Kong's status as an international hub gives us a unique commercial ecosystem. Our years of on-the-ground presence across Europe form the core of our competitive advantage.</p>
+  <div class="adv-grid">
+    <div class="adv-item reveal"><div class="adv-num">I</div><h4>Hong Kong Free Port Advantage</h4><p>Flexible policy environment, unrestricted capital flow, and high international business credibility — a solid institutional foundation for cross-border operations.</p></div>
+    <div class="adv-item reveal"><div class="adv-num">II</div><h4>Mature European Local Network</h4><p>Years of cultivating stable, reliable local partnerships and service resources across Europe — ensuring quality execution on the ground.</p></div>
+    <div class="adv-item reveal"><div class="adv-num">III</div><h4>Cross-Cultural Expert Team</h4><p>Our team combines European market experience with Asian market insight — fluent in international business protocol and adept at complex cross-border coordination.</p></div>
+    <div class="adv-item reveal"><div class="adv-num">IV</div><h4>Integrated Full-Service Offering</h4><p>Four business sectors working in concert — delivering strategic planning through to on-the-ground execution as a single, coherent solution.</p></div>
+    <div class="adv-item reveal"><div class="adv-num">V</div><h4>Premium Bespoke Capability</h4><p>Every engagement is treated as a custom project — tailored solutions designed to meet the exacting requirements of industry associations, major corporations, and individual clients.</p></div>
+    <div class="adv-item reveal"><div class="adv-num">VI</div><h4>Agile Resource Integration</h4><p>Unconstrained by traditional licensing, we integrate premium resources across sectors — responding swiftly to market shifts and evolving client needs.</p></div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="contact-inner">
+    <div class="reveal">
+      <div class="section-label" style="color:var(--gold)">Contact Us</div>
+      <h2 class="contact-heading">Start a Conversation,<br><em>Build Something Together</em></h2>
+      <div class="gold-divider"></div>
+      <p class="contact-desc">Whether you are exploring a business partnership, seeking a tailored solution, or simply wishing to learn more about what Liangcheng International can offer — our team is ready to assist.</p>
+    </div>
+    <div class="contact-details reveal">
+      <div class="contact-item">
+        <div class="contact-item-icon">✉</div>
+        <div class="contact-item-text"><label>Email</label><a href="mailto:info@liangcheng.eu">info@liangcheng.eu</a></div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-item-icon">💬</div>
+        <div class="contact-item-text"><label>WhatsApp</label><a href="https://wa.me/393339968888">+39 333 996 8888</a></div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-item-icon">📍</div>
+        <div class="contact-item-text"><label>Registered Address</label><p>Suites 2202-03, 22/F, Tower 1<br>The Gateway, Harbour City<br>Tsim Sha Tsui, Hong Kong</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo">LIANGCHENG INTERNATIONAL LIMITED · 良程国际有限公司</div>
+  <div class="footer-copy">© 2025 Liangcheng International Limited. All rights reserved.</div>
+</footer>
+
+<script>
+var reveals=document.querySelectorAll('.reveal');
+var obs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting)e.target.classList.add('visible')})},{threshold:0.05,rootMargin:'0px 0px -40px 0px'});
+reveals.forEach(function(el){obs.observe(el)});
+setTimeout(function(){reveals.forEach(function(el){el.classList.add('visible')})},1200);
+</script>
+</body>
+</html>
