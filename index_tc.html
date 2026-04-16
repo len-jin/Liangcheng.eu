@@ -1,82 +1,75 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh-HK">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>良程国际 | 跨境商贸资源与精品定制行旅整合平台</title>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600&family=Noto+Sans+SC:wght@300;400;500&family=Cormorant+Garamond:wght@300;500&display=swap" rel="stylesheet">
+    <title>良程國際 | 跨境商貿資源與精品定制行旅整合平台</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600&family=Noto+Sans+TC:wght@300;400;500&family=Cormorant+Garamond:wght@300;500&display=swap" rel="stylesheet">
     <style>
         *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
         :root{ --gold:#D4A843; --ink:#1C2333; --paper:#F8FAFC; --bg-alt:#F1F4F8; --bg-warm:#FAF9F6; --border:#E2E8F0; --section-pad:120px; }
         html{scroll-behavior:smooth}
-        body{font-family:'Noto Sans SC',sans-serif;background:var(--paper);color:var(--ink);font-weight:300;line-height:1.8;overflow-x:hidden; font-size: 15px;}
+        body{font-family:'Noto Sans TC',sans-serif;background:var(--paper);color:var(--ink);font-weight:300;line-height:1.8;overflow-x:hidden; font-size: 15px;}
 
-        /* 导航栏 - 锁定 88px */
+        /* 導航欄 - 88px / 非粗體 */
         nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 50px;height:88px;display:flex;align-items:center;justify-content:space-between;background:rgba(255,255,255,0.98);backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
         .nav-logo img{height:75px;width:auto;display:block;object-fit:contain} 
-
-        /* 导航文字 - 极简非粗体 */
         .nav-links{display:flex;gap:35px;list-style:none;align-items:center}
         .nav-links a{font-size:0.88rem;letter-spacing:0.1em;color:var(--ink);text-decoration:none;font-weight:400;transition:0.3s}
         .nav-links a:hover{color:var(--gold)}
 
-        /* 多语言切换 */
         .lang-switch{background:rgba(212, 168, 67, 0.08); padding:5px 16px; border-radius:50px; margin-left:10px; display:flex; align-items:center; gap:8px; border:1px solid rgba(212, 168, 67, 0.12)}
         .lang-switch a{font-size:0.8rem; opacity:0.5; color:var(--ink)!important; text-decoration:none; font-weight:400}
         .lang-switch a.active{opacity:1; color:var(--gold)!important; font-weight:500}
 
-        /* Hero Section */
+        /* Hero */
         #hero{height:100vh;display:flex;align-items:center;position:relative;background:#131C2E;padding:0 60px}
         .hero-bg{position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1467269204594-9661b134dd2b?q=80&w=2000') center/cover;opacity:0.4}
         .hero-content{position:relative;z-index:2;max-width:800px}
         .hero-eyebrow{font-family:'Cormorant Garamond',serif;font-size:0.9rem;letter-spacing:0.4em;color:var(--gold);margin-bottom:20px}
-        .hero-title{font-family:'Noto Serif SC',serif;font-size:3.8rem;color:#FAFCFF;line-height:1.2;margin-bottom:25px}
+        .hero-title{font-family:'Noto Serif TC',serif;font-size:3.8rem;color:#FAFCFF;line-height:1.2;margin-bottom:25px}
         .hero-title em{font-style:normal;color:var(--gold)}
 
-        /* 通用版块样式 */
         section{padding:var(--section-pad) 60px}
         .section-label{font-size:0.75rem;letter-spacing:0.4em;color:var(--gold);margin-bottom:20px;display:flex;align-items:center;gap:12px;text-transform:uppercase}
         .section-label::before{content:'';width:30px;height:1px;background:var(--gold)}
-        .section-title{font-family:'Noto Serif SC',serif;font-size:2.6rem;font-weight:600;margin-bottom:40px}
+        .section-title{font-family:'Noto Serif TC',serif;font-size:2.6rem;font-weight:600;margin-bottom:40px}
 
-        /* 关于我们 */
-        #about p{max-width:900px; color:#444; font-size:1.1rem; line-height:2;}
-
-        /* 核心优势 */
+        /* 核心優勢 */
         #advantages{background:#fff}
         .adv-grid{display:grid; grid-template-columns:repeat(3, 1fr); gap:50px}
-        .adv-item h4{font-family:'Noto Serif SC',serif; font-size:1.3rem; margin-bottom:15px}
+        .adv-item h4{font-family:'Noto Serif TC',serif; font-size:1.3rem; margin-bottom:15px}
         .adv-num{font-family:'Cormorant Garamond',serif; font-size:2.2rem; color:rgba(212,168,67,0.2); margin-bottom:5px; display:block}
 
-        /* 业务领域 - 视觉增强版 */
+        /* 業務領域 */
         #services{background:var(--bg-alt)}
         .services-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px}
-        .service-card{background:#fff;padding:60px;border:1px solid transparent;box-shadow:0 10px 30px rgba(0,0,0,0.02);transition:all 0.5s cubic-bezier(0.4, 0, 0.2, 1);position:relative;overflow:hidden}
+        .service-card{background:#fff;padding:60px;border:1px solid transparent;box-shadow:0 10px 30px rgba(0,0,0,0.02);transition:0.5s;position:relative;overflow:hidden}
         .service-card::after{content:''; position:absolute; top:0; left:0; width:4px; height:0; background:var(--gold); transition:0.4s}
         .service-card:hover{transform:translateY(-10px); box-shadow:0 20px 50px rgba(0,0,0,0.08); border-color:var(--border)}
         .service-card:hover::after{height:100%}
-        .service-card h3{font-family:'Noto Serif SC',serif;font-size:1.8rem;margin-bottom:30px;color:var(--gold)}
+        .service-card h3{font-family:'Noto Serif TC',serif;font-size:1.8rem;margin-bottom:30px;color:var(--gold)}
         .service-card li{margin-bottom:15px; padding-left:20px; position:relative; font-size:1.05rem; color:#444; list-style:none}
         .service-card li::before{content:''; position:absolute; left:0; top:12px; width:8px; height:1px; background:var(--gold)}
 
-        /* 深度内容布局 */
+        /* 深度佈局 */
         .sub-feature-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
-        .sub-content h3{font-family:'Noto Serif SC',serif;font-size:2.2rem;margin-bottom:30px}
+        .sub-content h3{font-family:'Noto Serif TC',serif;font-size:2.2rem;margin-bottom:30px}
         .sub-list li{margin-bottom:35px; list-style:none}
-        .sub-list h4{color:var(--gold);font-family:'Noto Serif SC',serif;font-size:1.25rem;margin-bottom:10px}
+        .sub-list h4{color:var(--gold);font-family:'Noto Serif TC',serif;font-size:1.25rem;margin-bottom:10px}
         .sub-feature-grid img{width:100%; height:600px; object-fit:cover; box-shadow:0 25px 50px rgba(0,0,0,0.12)}
 
         #trade-deep{background:var(--bg-warm)}
 
-        /* 战略赋能 */
+        /* 戰略賦能 */
         #bridge{background:var(--ink);color:#fff}
         .bridge-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
-        .bridge-item h4{color:var(--gold);font-size:1.3rem;margin-bottom:12px;font-family:'Noto Serif SC',serif}
+        .bridge-item h4{color:var(--gold);font-size:1.3rem;margin-bottom:12px;font-family:'Noto Serif TC',serif}
 
-        /* 愿景版块 */
+        /* 願景 */
         #vision{padding:100px 60px; text-align:center; background:#fff}
         .vision-line{width:40px; height:1px; background:var(--gold); margin:0 auto 30px}
-        .vision-title{font-family:'Noto Serif SC',serif; font-size:1.8rem; margin-bottom:15px; font-weight:400}
+        .vision-title{font-family:'Noto Serif TC',serif; font-size:1.8rem; margin-bottom:15px; font-weight:400}
         .vision-sub{font-size:0.8rem; color:#999; letter-spacing:0.3em}
 
         footer{background:var(--ink);color:#fff;padding:100px 60px 40px}
@@ -86,16 +79,16 @@
 <body>
 
 <nav>
-    <a href="#hero" class="nav-logo"><img src="/images/logo.png" alt="良程国际"></a>
+    <a href="#hero" class="nav-logo"><img src="/images/logo.png" alt="良程國際"></a>
     <ul class="nav-links">
-        <li><a href="#about">关于我们</a></li>
+        <li><a href="#about">關於我們</a></li>
         <li><a href="#tourism-deep">精品行旅</a></li>
-        <li><a href="#trade-deep">贸易资源</a></li>
-        <li><a href="#bridge">战略赋能</a></li>
+        <li><a href="#trade-deep">貿易資源</a></li>
+        <li><a href="#bridge">戰略賦能</a></li>
         <li class="lang-switch">
-            <a href="index.html" class="active">简</a>
+            <a href="index.html">簡</a>
             <span style="color:rgba(212,168,67,0.2)">|</span>
-            <a href="index_tc.html">繁</a>
+            <a href="index_tc.html" class="active">繁</a>
             <span style="color:rgba(212,168,67,0.2)">|</span>
             <a href="index_en.html">EN</a>
         </li>
@@ -106,62 +99,62 @@
     <div class="hero-bg"></div>
     <div class="hero-content">
         <div class="hero-eyebrow">COMMERCE · CURATED TRAVEL · CULTURAL SYNERGY</div>
-        <h1 class="hero-title">连接全球贸易<br><em>深耕精品旅行</em></h1>
-        <p style="color:rgba(255,255,255,0.75); max-width:600px; font-size:1.1rem;">依托深厚的欧洲本地资源网络，为亚洲与欧洲客户提供精准的跨境贸易对接与卓越的定制旅行方案。</p>
+        <h1 class="hero-title">連接全球貿易<br><em>深耕精品旅行</em></h1>
+        <p style="color:rgba(255,255,255,0.75); max-width:600px; font-size:1.1rem;">依托深厚的歐洲本地資源網絡，為亞洲與歐洲客戶提供精準的跨境商貿對接與卓越的定制旅行方案。</p>
     </div>
 </section>
 
 <section id="about">
     <div class="section-label">ABOUT LIANGCHENG</div>
-    <h2 class="section-title">跨境商贸资源与精品定制行旅整合平台</h2>
+    <h2 class="section-title">跨境商貿資源與精品定制行旅整合平台</h2>
     <div style="max-width:900px; color:#444; font-size:1.1rem; line-height:2;">
-        <p style="margin-bottom:25px;">良程国际有限公司于 2022 年在香港注册成立。公司依托香港作为国际商贸枢纽的连通性，构建起覆盖欧洲与亚洲的跨境服务网络。我们以资源整合与项目协同为核心，灵活连接全球优质合作伙伴，支持多类型跨国业务稳健落地。</p>
-        <p>核心团队深耕中欧市场多年，具备深厚的跨国商务背景与文化视野。我们致力于为各类企业机构、行业协会及高端客户提供卓越的跨境商贸对接与精品旅行资源支持。</p>
+        <p style="margin-bottom:25px;">良程國際有限公司於 2022 年在香港註冊成立。公司依托香港作為國際商貿樞紐的連通性，構建起覆蓋歐洲與亞洲的跨境服務網絡。我們以資源整合與項目協同為核心，靈活連接全球優質合作夥伴，支持多類型跨國業務穩健落地。</p>
+        <p>核心團隊深耕中歐市場多年，具備深厚的跨國商務背景與文化視野。我們致力於為各類企業機構、行業協會及高端客戶提供卓越的跨境商貿對接與精品旅行資源支持。</p>
     </div>
 </section>
 
 <section id="advantages">
     <div class="section-label">OUR STRENGTHS</div>
-    <h2 class="section-title">为什么选择良程</h2>
+    <h2 class="section-title">為什麼選擇良程</h2>
     <div class="adv-grid">
         <div class="adv-item">
             <span class="adv-num">01</span>
-            <h4>欧洲本地资源网络</h4>
-            <p>深耕欧洲多年，在法、德、意等核心经济枢纽建立了一手资源体系，确保服务精准触达。</p>
+            <h4>歐洲本地資源網絡</h4>
+            <p>深耕歐洲多年，在法、德、意等核心經濟樞紐建立了一手資源體系，確保服務精準觸達。</p>
         </div>
         <div class="adv-item">
             <span class="adv-num">02</span>
-            <h4>跨文化双向赋能</h4>
-            <p>核心团队具备深厚商务背景，精准解码商业逻辑，消除文化隔阂带来的信息不对称。</p>
+            <h4>跨文化雙向賦能</h4>
+            <p>核心團隊具備深厚商務背景，精準解碼商業邏輯，消除文化隔閡帶來的資訊不對稱。</p>
         </div>
         <div class="adv-item">
             <span class="adv-num">03</span>
-            <h4>全链路落地保障</h4>
-            <p>从商贸对接、供应商筛选到精品定制化行程，提供全链条闭环管理，为业务保驾护航。</p>
+            <h4>全鏈路落地保障</h4>
+            <p>從商貿對接、供應商篩選到精品定制化行程，提供全鏈條閉環管理，為業務保駕護航。</p>
         </div>
     </div>
 </section>
 
 <section id="services">
     <div class="section-label">CORE SECTORS</div>
-    <h2 class="section-title">业务领域</h2>
+    <h2 class="section-title">業務領域</h2>
     <div class="services-grid">
         <div class="service-card">
-            <h3>精品行旅资源与定制</h3>
+            <h3>精品行旅資源與定制</h3>
             <ul>
-                <li>深度行程规划建议</li>
-                <li>商务出行配套支持</li>
-                <li>行业交流与巡访策划</li>
-                <li>会奖团队协调服务</li>
+                <li>深度行程規劃建議</li>
+                <li>商務出行配套支持</li>
+                <li>行業交流與巡訪策劃</li>
+                <li>會獎團隊協調服務</li>
             </ul>
         </div>
         <div class="service-card">
-            <h3>跨境贸易与供应链协同</h3>
+            <h3>跨境貿易與供應鏈協同</h3>
             <ul>
-                <li>全球商品采购对接</li>
-                <li>优质供应商匹配</li>
-                <li>跨国资源配置中心</li>
-                <li>贸易全流程协同管理</li>
+                <li>全球商品採購對接</li>
+                <li>優質供應商匹配</li>
+                <li>跨國資源配置中心</li>
+                <li>貿易全流程協同管理</li>
             </ul>
         </div>
     </div>
@@ -171,16 +164,16 @@
     <div class="section-label">DEEP DIVE: TOURISM</div>
     <div class="sub-feature-grid">
         <div class="sub-content">
-            <h3>精品定制行旅<br>重塑出行价值</h3>
-            <p>我们通过对欧洲本土资源的深度整合，将每一次出行转化为极具质感的私人定制体验。</p>
+            <h3>精品定制行旅<br>重塑出行價值</h3>
+            <p>我們通過對歐洲本土資源的深度整合，將每一次出行轉化為極具質感的私人定制體驗。</p>
             <ul class="sub-list">
                 <li>
-                    <h4>稀缺资源的直接触达</h4>
-                    <p>我们与欧洲各地的特色酒店、专业行业机构及资深地接团队保持紧密协作，确保获得一手资源保障。</p>
+                    <h4>稀缺資源的直接觸達</h4>
+                    <p>我們與歐洲各地的特色酒店、專業行業機構及資深地接團隊保持緊密協作，確保獲得一手資源保障。</p>
                 </li>
                 <li>
-                    <h4>专业化的行程逻辑设计</h4>
-                    <p>无论是商务考察还是私人度假，我们均提供从路线规划到应急预案的全流程方案。</p>
+                    <h4>專業化的行程邏輯設計</h4>
+                    <p>無論是商務考察還是私人度假，我們均提供從路線規劃到應急預案的全流程方案。</p>
                 </li>
             </ul>
         </div>
@@ -192,16 +185,16 @@
     <div class="section-label">DEEP DIVE: COMMERCE</div>
     <div class="sub-feature-grid" style="direction: rtl;">
         <div class="sub-content" style="direction: ltr;">
-            <h3>跨境商贸驱动<br>与全球资源整合</h3>
-            <p>构建连接欧洲与亚洲市场的核心供应链体系，协助客户在国际环境中实现资源价值的最优配置。</p>
+            <h3>跨境商貿驅動<br>與全球資源整合</h3>
+            <p>構建連接歐洲與亞洲市場的核心供應鏈體系，協助客戶在國際環境中實現資源價值的最優配置。</p>
             <ul class="sub-list">
                 <li>
-                    <h4>亚洲品牌的欧洲业务深耕</h4>
-                    <p>助力亚洲品牌在欧洲市场建立稳健的供应链支撑与渠道对接，实现业务落地的本地化适应与长效增长。</p>
+                    <h4>亞洲品牌的歐洲業務深耕</h4>
+                    <p>助力亞洲品牌在歐洲市場建立穩健的供應鏈支撐與渠道對接，實現業務落地的本地化適應與長效增長。</p>
                 </li>
                 <li>
-                    <h4>欧洲优质产品的高效穿透</h4>
-                    <p>协助欧洲精品与技术精准进入亚洲市场，通过多维度的资源架构，实现双向价值的深度互通。</p>
+                    <h4>歐洲優質產品的高效穿透</h4>
+                    <p>協助歐洲精品與技術精準進入亞洲市場，通過多維度的資源架構，實現雙向價值的深度互通。</p>
                 </li>
             </ul>
         </div>
@@ -213,15 +206,15 @@
     <div class="section-label" style="color:rgba(212,168,67,0.5);">STRATEGIC SYNERGY</div>
     <div class="bridge-grid">
         <div class="bridge-content">
-            <h2 class="section-title" style="color:var(--gold);">跨文化叙事<br>与战略协同赋能</h2>
-            <p style="font-size: 1.1rem; opacity: 0.8; margin-bottom: 40px;">在商贸交互中注入人文叙事，通过深度的文化译码，为客户创造超越交易本身的价值增量。</p>
+            <h2 class="section-title" style="color:var(--gold);">跨文化敘事<br>與戰略協同賦能</h2>
+            <p style="font-size: 1.1rem; opacity: 0.8; margin-bottom: 40px;">在商貿交互中注入人文敘事，通過深度的文化譯碼，為客戶創造超越交易本身的價值增量。</p>
             <div class="bridge-item">
-                <h4>品牌内涵的深度译码</h4>
-                <p>协助品牌跨越文化隔阂，通过本土化叙事，使品牌在异质文化中具备生命力。</p>
+                <h4>品牌內涵的深度譯碼</h4>
+                <p>協助品牌跨越文化隔閡，通過本土化敘事，使品牌在異質文化中具備生命力。</p>
             </div>
             <div class="bridge-item">
-                <h4>人文价值策划</h4>
-                <p>在行旅中融入行业深度与美学，协助客户实现视野拓宽与资源人脉沉淀。</p>
+                <h4>人文價值策劃</h4>
+                <p>在行旅中融入行業深度與美學，協助客戶實現視野拓寬與資源人脈沉澱。</p>
             </div>
         </div>
         <div style="border: 1px solid rgba(212,168,67,0.2); padding: 20px;">
@@ -232,28 +225,25 @@
 
 <section id="vision">
     <div class="vision-line"></div>
-    <h3 class="vision-title">智识远见 · 资源无界</h3>
+    <h3 class="vision-title">智識遠見 · 資源無界</h3>
     <p class="vision-sub">CONNECTING VISION WITH GLOBAL RESOURCES</p>
 </section>
 
 <footer>
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:60px;">
         <div>
-            <h2 style="font-family:'Noto Serif SC',serif;color:var(--gold);font-size:2rem; margin-bottom:20px;">开启合作 · 共塑未来</h2>
+            <h2 style="font-family:'Noto Serif TC',serif;color:var(--gold);font-size:2rem; margin-bottom:20px;">開啟合作 · 共塑未來</h2>
             <p style="opacity:0.8; font-size:1.1rem;">info@liangcheng.eu | +86 13118686088</p>
         </div>
         <div style="text-align:right;opacity:0.4;font-size:0.9rem;">
-            <p style="color:#fff; margin-bottom:5px;">良程国际有限公司 | LIANGCHENG INTERNATIONAL LIMITED</p>
+            <p style="color:#fff; margin-bottom:5px;">良程國際有限公司 | LIANGCHENG INTERNATIONAL LIMITED</p>
             <p>Suites 2202-03, 22/F, Tower 1, The Gateway, Harbour City, Hong Kong</p>
         </div>
     </div>
-    
     <div class="footer-disclaimer">
-        <strong>法律免责声明：</strong> 良程国际提供跨境资源整合与商贸协同服务。具体的精品定制行旅方案由具备合法资质的第三方供应商执行，本公司在法律允许范围内承担相应的平台与项目管理责任。
+        <strong>法律免責聲明：</strong> 良程國際提供跨境資源整合與商貿協同服務。具體的精品定制行旅方案由具備合法資質的第三方供應商執行，本公司在法律允許範圍內承擔相應的平台與項目管理責任。
     </div>
-    
     <p style="text-align:center; opacity:0.1; font-size:0.7rem; margin-top:50px;">© 2026 LIANGCHENG INTERNATIONAL LIMITED. ALL RIGHTS RESERVED.</p>
 </footer>
-
 </body>
 </html>
