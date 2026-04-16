@@ -3,82 +3,96 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Liangcheng International | Cross-border Commerce & Curated Travel</title>
+    <title>LIANGCHENG | Global Commerce & Curated Travel Integration Platform</title>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
         *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-        :root{ --gold:#D4A843; --ink:#1C2333; --paper:#F8FAFC; --bg-alt:#F1F4F8; --bg-warm:#FAF9F6; --border:#E2E8F0; --section-pad:120px; }
+        :root{ --gold:#D4A843; --ink:#1C2333; --paper:#F8FAFC; --bg-alt:#F1F4F8; --bg-warm:#FAF9F6; --border:#E2E8F0; --section-pad:140px; }
         html{scroll-behavior:smooth}
-        body{font-family:'Montserrat', sans-serif;background:var(--paper);color:var(--ink);font-weight:300;line-height:1.7;overflow-x:hidden; font-size: 14px;}
+        body{font-family:'Montserrat',sans-serif;background:var(--paper);color:var(--ink);font-weight:300;line-height:1.8;overflow-x:hidden; font-size: 15px;}
 
-        /* Nav - 88px / Weight 400 */
+        /* --- Navigation --- */
         nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 50px;height:88px;display:flex;align-items:center;justify-content:space-between;background:rgba(255,255,255,0.98);backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
         .nav-logo img{height:75px;width:auto;display:block;object-fit:contain} 
-        .nav-links{display:flex;gap:30px;list-style:none;align-items:center}
-        .nav-links a{font-size:0.82rem;letter-spacing:0.1em;color:var(--ink);text-decoration:none;font-weight:400;text-transform:uppercase;transition:0.3s}
+        .nav-links{display:flex;gap:35px;list-style:none;align-items:center}
+        .nav-links a{font-size:0.8rem;letter-spacing:0.1em;color:var(--ink);text-decoration:none;font-weight:400;transition:0.3s;text-transform:uppercase}
         .nav-links a:hover{color:var(--gold)}
 
-        .lang-switch{background:rgba(212, 168, 67, 0.08); padding:5px 16px; border-radius:50px; margin-left:10px; display:flex; align-items:center; gap:8px; border:1px solid rgba(212, 168, 67, 0.12)}
+        .lang-switch{background:rgba(212, 168, 67, 0.08); padding:5px 16px; border-radius:50px; margin-left:10px; display:flex; align-items:center; gap:8px; border:1px solid rgba(212, 168, 67, 0.12); white-space: nowrap;}
         .lang-switch a{font-size:0.75rem; opacity:0.5; color:var(--ink)!important; text-decoration:none; font-weight:400}
         .lang-switch a.active{opacity:1; color:var(--gold)!important; font-weight:500}
 
-        /* Hero */
+        /* Hero Section */
         #hero{height:100vh;display:flex;align-items:center;position:relative;background:#131C2E;padding:0 60px}
         .hero-bg{position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1467269204594-9661b134dd2b?q=80&w=2000') center/cover;opacity:0.4}
-        .hero-content{position:relative;z-index:2;max-width:850px}
-        .hero-eyebrow{font-size:0.85rem;letter-spacing:0.4em;color:var(--gold);margin-bottom:20px}
-        .hero-title{font-family:'Cormorant Garamond',serif;font-size:4.2rem;color:#FAFCFF;line-height:1.1;margin-bottom:25px;font-weight:300}
-        .hero-title em{font-style:italic;color:var(--gold)}
+        .hero-content{position:relative;z-index:2;max-width:900px}
+        .hero-eyebrow{font-family:'Cormorant Garamond',serif;font-size:1rem;letter-spacing:0.4em;color:var(--gold);margin-bottom:20px;text-transform:uppercase}
+        .hero-title{font-family:'Cormorant Garamond',serif;font-size:4.5rem;color:#FAFCFF;line-height:1.1;margin-bottom:25px;font-weight:300}
+        .hero-title em{font-style:italic;color:var(--gold);font-weight:500}
 
+        /* Common Section Styles */
         section{padding:var(--section-pad) 60px}
         .section-label{font-size:0.75rem;letter-spacing:0.4em;color:var(--gold);margin-bottom:20px;display:flex;align-items:center;gap:12px;text-transform:uppercase}
         .section-label::before{content:'';width:30px;height:1px;background:var(--gold)}
-        .section-title{font-family:'Cormorant Garamond',serif;font-size:3rem;font-weight:400;margin-bottom:40px}
+        .section-title{font-family:'Cormorant Garamond',serif;font-size:3.2rem;font-weight:500;margin-bottom:40px;line-height:1.2}
 
         /* Strengths */
-        #advantages{background:#fff}
         .adv-grid{display:grid; grid-template-columns:repeat(3, 1fr); gap:50px}
-        .adv-item h4{font-family:'Cormorant Garamond',serif; font-size:1.6rem; margin-bottom:15px; font-weight:500}
+        .adv-item h4{font-family:'Cormorant Garamond',serif; font-size:1.6rem; margin-bottom:15px; font-weight:600}
         .adv-num{font-family:'Cormorant Garamond',serif; font-size:2.5rem; color:rgba(212,168,67,0.2); margin-bottom:5px; display:block}
 
-        /* Sectors */
         #services{background:var(--bg-alt)}
         .services-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px}
-        .service-card{background:#fff;padding:60px;border:1px solid transparent;box-shadow:0 10px 30px rgba(0,0,0,0.02);transition:0.5s;position:relative;overflow:hidden}
-        .service-card::after{content:''; position:absolute; top:0; left:0; width:4px; height:0; background:var(--gold); transition:0.4s}
+        .service-card{background:#fff;padding:60px;border:1px solid transparent;box-shadow:0 10px 30px rgba(0,0,0,0.02);transition:all 0.5s cubic-bezier(0.4, 0, 0.2, 1);position:relative;overflow:hidden}
         .service-card:hover{transform:translateY(-10px); box-shadow:0 20px 50px rgba(0,0,0,0.08); border-color:var(--border)}
-        .service-card:hover::after{height:100%}
-        .service-card h3{font-family:'Cormorant Garamond',serif;font-size:2.2rem;margin-bottom:30px;color:var(--gold);font-weight:500}
-        .service-card li{margin-bottom:15px; padding-left:20px; position:relative; font-size:0.95rem; color:#444; list-style:none}
-        .service-card li::before{content:''; position:absolute; left:0; top:10px; width:8px; height:1px; background:var(--gold)}
+        .service-card h3{font-family:'Cormorant Garamond',serif;font-size:2.2rem;margin-bottom:30px;color:var(--gold)}
+        .service-card li{margin-bottom:15px; padding-left:20px; position:relative; font-size:1rem; color:#444; list-style:none}
+        .service-card li::before{content:''; position:absolute; left:0; top:12px; width:8px; height:1px; background:var(--gold)}
 
-        /* Dives */
+        /* Deep Dive Content */
         .sub-feature-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
-        .sub-content h3{font-family:'Cormorant Garamond',serif;font-size:2.6rem;margin-bottom:30px;font-weight:400}
+        .sub-content h3{font-family:'Cormorant Garamond',serif;font-size:2.8rem;margin-bottom:30px}
         .sub-list li{margin-bottom:35px; list-style:none}
-        .sub-list h4{color:var(--gold);font-family:'Cormorant Garamond',serif;font-size:1.5rem;margin-bottom:10px;font-weight:500}
+        .sub-list h4{color:var(--gold);font-family:'Cormorant Garamond',serif;font-size:1.6rem;margin-bottom:10px;font-weight:600}
+        .sub-feature-grid img{width:100%; height:600px; object-fit:cover; box-shadow:0 25px 50px rgba(0,0,0,0.12)}
 
-        #trade-deep{background:var(--bg-warm)}
-
-        /* Synergy */
+        /* Bridge Section */
         #bridge{background:var(--ink);color:#fff}
         .bridge-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
-        .bridge-item h4{color:var(--gold);font-size:1.4rem;margin-bottom:12px;font-family:'Cormorant Garamond',serif;font-weight:500}
+        .bridge-item h4{color:var(--gold);font-size:1.5rem;margin-bottom:12px;font-family:'Cormorant Garamond',serif;font-weight:600}
 
-        /* Vision */
+        /* Vision & Footer */
         #vision{padding:100px 60px; text-align:center; background:#fff}
-        .vision-line{width:40px; height:1px; background:var(--gold); margin:0 auto 30px}
-        .vision-title{font-family:'Cormorant Garamond',serif; font-size:2.2rem; margin-bottom:15px; font-weight:400}
-        .vision-sub{font-size:0.8rem; color:#999; letter-spacing:0.4em}
-
         footer{background:var(--ink);color:#fff;padding:100px 60px 40px}
-        .footer-disclaimer{font-size:0.8rem;color:rgba(255,255,255,0.35);border-top:1px solid rgba(255,255,255,0.1);margin-top:60px;padding-top:30px;line-height:1.7}
+        .footer-disclaimer{font-size:0.75rem;color:rgba(255,255,255,0.35);border-top:1px solid rgba(255,255,255,0.1);margin-top:60px;padding-top:30px;line-height:1.8}
+
+        /* Mobile Adaptation */
+        @media (max-width: 1024px) {
+            :root { --section-pad: 80px; }
+            nav { padding: 0 15px; height: 74px; }
+            .nav-logo img { height: 50px; }
+            .nav-links { gap: 10px; }
+            .nav-links a { font-size: 0.65rem; letter-spacing: 0; }
+            .lang-switch { padding: 4px 8px; margin-left: 5px; gap: 4px; }
+            section { padding: var(--section-pad) 25px; }
+            .hero-title { font-size: 2.8rem; }
+            .section-title { font-size: 2.2rem; }
+            .adv-grid, .services-grid, .sub-feature-grid, .bridge-grid { grid-template-columns: 1fr !important; gap: 40px; }
+            #trade-deep .sub-feature-grid { direction: ltr !important; }
+            #trade-deep .sub-content { direction: ltr !important; }
+            .sub-feature-grid img { height: 350px; }
+            footer > div:first-child { grid-template-columns: 1fr !important; gap: 40px; text-align: center; }
+            div[style*="text-align:right"] { text-align: center !important; }
+        }
+        @media (max-width: 580px) {
+            .nav-links li:not(.lang-switch) { display: none; }
+        }
     </style>
 </head>
 <body>
 
 <nav>
-    <a href="#hero" class="nav-logo"><img src="/images/logo.png" alt="Liangcheng"></a>
+    <a href="#hero" class="nav-logo"><img src="/images/logo.png" alt="LIANGCHENG"></a>
     <ul class="nav-links">
         <li><a href="#about">About</a></li>
         <li><a href="#tourism-deep">Travel</a></li>
@@ -98,62 +112,62 @@
     <div class="hero-bg"></div>
     <div class="hero-content">
         <div class="hero-eyebrow">COMMERCE · CURATED TRAVEL · CULTURAL SYNERGY</div>
-        <h1 class="hero-title">Bridging Global Trade<br><em>Curating Bespoke Journeys</em></h1>
-        <p style="color:rgba(255,255,255,0.75); max-width:600px; font-size:1.1rem;">Leveraging deep local European networks to provide precise trade matchmaking and exceptional bespoke travel solutions.</p>
+        <h1 class="hero-title">Bridging Global <em>Commerce</em><br>Curating Bespoke <em>Journeys</em></h1>
+        <p style="color:rgba(255,255,255,0.75); max-width:650px; font-size:1.1rem;">Leveraging deep local networks across Europe to provide precise cross-border business matchmaking and exceptional bespoke travel solutions for Asian and European clients.</p>
     </div>
 </section>
 
 <section id="about">
     <div class="section-label">ABOUT LIANGCHENG</div>
-    <h2 class="section-title">An Integrated Platform for Global Commerce and Curated Travel</h2>
-    <div style="max-width:900px; color:#444; font-size:1.05rem; line-height:1.8;">
-        <p style="margin-bottom:25px;">Liangcheng International Limited was established in Hong Kong in 2022. Utilizing Hong Kong’s connectivity as a global commercial hub, we have built a cross-border service network spanning Europe and Asia. We focus on resource integration and project synergy, linking premium global partners to ensure the stable implementation of multinational operations.</p>
-        <p>Our core team has been deeply rooted in the Sino-European markets for many years, possessing profound multinational business backgrounds and cultural perspectives. We are committed to providing outstanding cross-border commercial matchmaking and premium travel resource support.</p>
+    <h2 class="section-title">An Integrated Platform for Cross-Border Resources & Bespoke Travel</h2>
+    <div style="max-width:900px; color:#444; font-size:1.1rem; line-height:2;">
+        <p style="margin-bottom:25px;">Liangcheng International Limited was incorporated in Hong Kong in 2022. Utilizing Hong Kong's connectivity as an international trade hub, we have built a cross-border service network spanning Europe and Asia. Our core mission focuses on resource integration and project synergy, flexibly connecting premium global partners to support the stable implementation of various multinational business types.</p>
+        <p>Our core team has been deeply involved in the Sino-European market for many years, possessing profound multinational business backgrounds and cultural insights. We are committed to providing outstanding cross-border business matchmaking and curated travel resource support for various enterprises, industry associations, and high-net-worth individuals.</p>
     </div>
 </section>
 
 <section id="advantages">
     <div class="section-label">OUR STRENGTHS</div>
-    <h2 class="section-title">Why Liangcheng</h2>
+    <h2 class="section-title">Why Choose Liangcheng</h2>
     <div class="adv-grid">
         <div class="adv-item">
             <span class="adv-num">01</span>
-            <h4>Local European Network</h4>
-            <p>Years of experience in core economic hubs like France, Germany, and Italy, ensuring direct access to first-hand resources.</p>
+            <h4>European Local Network</h4>
+            <p>Deeply rooted in Europe for years, we have established primary resource systems in core economic hubs such as France, Germany, and Italy, ensuring precise service delivery.</p>
         </div>
         <div class="adv-item">
             <span class="adv-num">02</span>
             <h4>Cross-Cultural Synergy</h4>
-            <p>A team with deep business backgrounds that decodes complex logic and bridges the gap caused by cultural differences.</p>
+            <p>Our core team possesses deep business backgrounds, accurately decoding commercial logic and eliminating information asymmetry caused by cultural gaps.</p>
         </div>
         <div class="adv-item">
             <span class="adv-num">03</span>
-            <h4>End-to-End Execution</h4>
-            <p>From trade matchmaking to bespoke itineraries, we provide full-chain management to safeguard your international business.</p>
+            <h4>Full-Chain Guarantee</h4>
+            <p>From business matchmaking and supplier screening to bespoke travel itineraries, we provide end-to-end management to safeguard your business operations.</p>
         </div>
     </div>
 </section>
 
 <section id="services">
     <div class="section-label">CORE SECTORS</div>
-    <h2 class="section-title">Service Sectors</h2>
+    <h2 class="section-title">Our Business Sectors</h2>
     <div class="services-grid">
         <div class="service-card">
-            <h3>Curated Travel & Bespoke Resources</h3>
+            <h3>Curated Travel & Customization</h3>
             <ul>
-                <li>In-depth Itinerary Planning</li>
-                <li>Business Travel Support</li>
-                <li>Industry Exchange & Field Visits</li>
-                <li>MICE Coordination Services</li>
+                <li>In-depth itinerary planning suggestions</li>
+                <li>Business travel support services</li>
+                <li>Industry exchange & study tour planning</li>
+                <li>MICE team coordination services</li>
             </ul>
         </div>
         <div class="service-card">
-            <h3>Trade & Supply Chain Synergy</h3>
+            <h3>Cross-Border Trade & Supply Chain</h3>
             <ul>
-                <li>Global Product Sourcing</li>
-                <li>Premium Supplier Matching</li>
-                <li>Multinational Resource Allocation</li>
-                <li>Full-Process Trade Management</li>
+                <li>Global product procurement matchmaking</li>
+                <li>Premium supplier matching</li>
+                <li>Multinational resource allocation center</li>
+                <li>Trade full-process collaborative management</li>
             </ul>
         </div>
     </div>
@@ -163,16 +177,16 @@
     <div class="section-label">DEEP DIVE: TOURISM</div>
     <div class="sub-feature-grid">
         <div class="sub-content">
-            <h3>Bespoke Travel<br>Redefining Experience</h3>
-            <p>Through deep integration of local European resources, we transform every trip into a textured, tailor-made experience.</p>
-            <ul class="sub-list">
+            <h3>Bespoke Travel<br>Redefining Value</h3>
+            <p>Through deep integration of European local resources, we transform every journey into a highly textured, private customized experience.</p>
+            <ul class="sub-list" style="margin-top:30px;">
                 <li>
-                    <h4>Direct Access to Rare Resources</h4>
-                    <p>We work closely with boutique hotels, professional industry institutions, and senior local ground teams across Europe to ensure first-hand resource guarantees.</p>
+                    <h4>Direct Access to Scarcity</h4>
+                    <p>We work closely with unique hotels, professional industry institutions, and senior local ground teams across Europe to ensure first-hand resource guarantees.</p>
                 </li>
                 <li>
                     <h4>Professional Itinerary Design</h4>
-                    <p>Whether for business inspections or private vacations, we provide full-process solutions from route planning to contingency plans.</p>
+                    <p>Whether for business inspection or private vacation, we provide full-process solutions from route planning to contingency protocols.</p>
                 </li>
             </ul>
         </div>
@@ -184,16 +198,16 @@
     <div class="section-label">DEEP DIVE: COMMERCE</div>
     <div class="sub-feature-grid" style="direction: rtl;">
         <div class="sub-content" style="direction: ltr;">
-            <h3>Commerce Driven by<br>Global Integration</h3>
-            <p>Building a core supply chain connecting European and Asian markets to assist clients in optimizing resource allocation.</p>
-            <ul class="sub-list">
+            <h3>Driven by Commerce<br>Global Resource Integration</h3>
+            <p>Building a core supply chain system connecting European and Asian markets, assisting clients in achieving optimal resource allocation in international environments.</p>
+            <ul class="sub-list" style="margin-top:30px;">
                 <li>
-                    <h4>Empowering Asian Brands in Europe</h4>
-                    <p>Helping Asian brands establish robust supply chains and channel connections in Europe, facilitating localized adaptation and long-term growth.</p>
+                    <h4>European Business Development for Asian Brands</h4>
+                    <p>Assisting Asian brands in establishing robust supply chain support and channel matchmaking in Europe, achieving localized adaptation and long-term growth.</p>
                 </li>
                 <li>
-                    <h4>European Product Penetration</h4>
-                    <p>Facilitating the precise entry of premium European products and technologies into the Asian market through multi-dimensional architectures.</p>
+                    <h4>Efficient Penetration of European Products</h4>
+                    <p>Helping European premium products and technologies accurately enter the Asian market through multi-dimensional resource architectures.</p>
                 </li>
             </ul>
         </div>
@@ -205,15 +219,15 @@
     <div class="section-label" style="color:rgba(212,168,67,0.5);">STRATEGIC SYNERGY</div>
     <div class="bridge-grid">
         <div class="bridge-content">
-            <h2 class="section-title" style="color:var(--gold);">Cultural Narrative &<br>Strategic Empowerment</h2>
-            <p style="font-size: 1.1rem; opacity: 0.8; margin-bottom: 40px;">Infusing humanistic narratives into commercial interaction and curated travel to create value beyond the transaction.</p>
+            <h2 class="section-title" style="color:var(--gold);">Cross-Cultural Narrative<br>& Strategic Empowerment</h2>
+            <p style="font-size: 1.1rem; opacity: 0.8; margin-bottom: 40px;">Infusing humanistic narratives into commercial interactions, creating value-added growth beyond simple transactions through deep cultural decoding.</p>
             <div class="bridge-item">
                 <h4>Deep Decoding of Brand Essence</h4>
-                <p>Helping brands cross cultural barriers. Through precise localized narratives, we ensure brands gain vitality in diverse cultural contexts.</p>
+                <p>Helping brands cross cultural barriers through localized storytelling, giving brands vitality in heterogeneous cultures.</p>
             </div>
             <div class="bridge-item">
                 <h4>Humanistic Value Planning</h4>
-                <p>Integrating industry depth and aesthetics into travel, helping clients broaden their horizons and accumulate high-end connections.</p>
+                <p>Integrating industry depth and aesthetics into journeys, assisting clients in broadening horizons and accumulating professional networks.</p>
             </div>
         </div>
         <div style="border: 1px solid rgba(212,168,67,0.2); padding: 20px;">
@@ -224,25 +238,28 @@
 
 <section id="vision">
     <div class="vision-line"></div>
-    <h3 class="vision-title">VISIONARY · BEYOND BORDERS</h3>
+    <h3 style="font-family:'Cormorant Garamond',serif; font-size:2.2rem; margin-bottom:15px; font-weight:400;">Wisdom & Vision · Boundless Resources</h3>
     <p class="vision-sub">CONNECTING VISION WITH GLOBAL RESOURCES</p>
 </section>
 
 <footer>
-    <div style="display:grid;grid-template-columns:1fr 1.5fr;gap:60px;">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:60px;">
         <div>
-            <h2 style="font-family:'Cormorant Garamond',serif;color:var(--gold);font-size:2.2rem; margin-bottom:20px;">Shape the Future Together</h2>
+            <h2 style="font-family:'Cormorant Garamond',serif;color:var(--gold);font-size:2.4rem; margin-bottom:20px;">Start Cooperation · Shape the Future</h2>
             <p style="opacity:0.8; font-size:1.1rem;">info@liangcheng.eu | +86 13118686088</p>
         </div>
-        <div style="text-align:right;opacity:0.4;font-size:0.9rem;">
+        <div style="text-align:right;opacity:0.4;font-size:0.85rem;">
             <p style="color:#fff; margin-bottom:5px;">LIANGCHENG INTERNATIONAL LIMITED</p>
             <p>Suites 2202-03, 22/F, Tower 1, The Gateway, Harbour City, Hong Kong</p>
         </div>
     </div>
+    
     <div class="footer-disclaimer">
-        <strong>Legal Disclaimer:</strong> Liangcheng International provides cross-border resource integration and commercial synergy services. Specific curated travel solutions are executed by legally qualified third-party suppliers.
-    </div>
+    <strong>Legal Disclaimer:</strong> The Company provides cross-border resource integration services. All execution aspects of travel (such as transportation, accommodation, and hospitality) are provided by third-party suppliers with legal qualifications. The Company assumes management and coordination responsibilities within the scope permitted by law.
+</div>
+    
     <p style="text-align:center; opacity:0.1; font-size:0.7rem; margin-top:50px;">© 2026 LIANGCHENG INTERNATIONAL LIMITED. ALL RIGHTS RESERVED.</p>
 </footer>
+
 </body>
 </html>

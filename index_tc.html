@@ -11,18 +11,18 @@
         html{scroll-behavior:smooth}
         body{font-family:'Noto Sans TC',sans-serif;background:var(--paper);color:var(--ink);font-weight:300;line-height:1.8;overflow-x:hidden; font-size: 15px;}
 
-        /* 導航欄 - 88px / 非粗體 */
+        /* --- 導航欄 --- */
         nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 50px;height:88px;display:flex;align-items:center;justify-content:space-between;background:rgba(255,255,255,0.98);backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
         .nav-logo img{height:75px;width:auto;display:block;object-fit:contain} 
         .nav-links{display:flex;gap:35px;list-style:none;align-items:center}
         .nav-links a{font-size:0.88rem;letter-spacing:0.1em;color:var(--ink);text-decoration:none;font-weight:400;transition:0.3s}
         .nav-links a:hover{color:var(--gold)}
 
-        .lang-switch{background:rgba(212, 168, 67, 0.08); padding:5px 16px; border-radius:50px; margin-left:10px; display:flex; align-items:center; gap:8px; border:1px solid rgba(212, 168, 67, 0.12)}
+        .lang-switch{background:rgba(212, 168, 67, 0.08); padding:5px 16px; border-radius:50px; margin-left:10px; display:flex; align-items:center; gap:8px; border:1px solid rgba(212, 168, 67, 0.12); white-space: nowrap;}
         .lang-switch a{font-size:0.8rem; opacity:0.5; color:var(--ink)!important; text-decoration:none; font-weight:400}
         .lang-switch a.active{opacity:1; color:var(--gold)!important; font-weight:500}
 
-        /* Hero */
+        /* Hero Section */
         #hero{height:100vh;display:flex;align-items:center;position:relative;background:#131C2E;padding:0 60px}
         .hero-bg{position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1467269204594-9661b134dd2b?q=80&w=2000') center/cover;opacity:0.4}
         .hero-content{position:relative;z-index:2;max-width:800px}
@@ -30,50 +30,65 @@
         .hero-title{font-family:'Noto Serif TC',serif;font-size:3.8rem;color:#FAFCFF;line-height:1.2;margin-bottom:25px}
         .hero-title em{font-style:normal;color:var(--gold)}
 
+        /* 通用版塊 */
         section{padding:var(--section-pad) 60px}
         .section-label{font-size:0.75rem;letter-spacing:0.4em;color:var(--gold);margin-bottom:20px;display:flex;align-items:center;gap:12px;text-transform:uppercase}
         .section-label::before{content:'';width:30px;height:1px;background:var(--gold)}
         .section-title{font-family:'Noto Serif TC',serif;font-size:2.6rem;font-weight:600;margin-bottom:40px}
 
         /* 核心優勢 */
-        #advantages{background:#fff}
         .adv-grid{display:grid; grid-template-columns:repeat(3, 1fr); gap:50px}
         .adv-item h4{font-family:'Noto Serif TC',serif; font-size:1.3rem; margin-bottom:15px}
         .adv-num{font-family:'Cormorant Garamond',serif; font-size:2.2rem; color:rgba(212,168,67,0.2); margin-bottom:5px; display:block}
 
-        /* 業務領域 */
         #services{background:var(--bg-alt)}
         .services-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px}
-        .service-card{background:#fff;padding:60px;border:1px solid transparent;box-shadow:0 10px 30px rgba(0,0,0,0.02);transition:0.5s;position:relative;overflow:hidden}
-        .service-card::after{content:''; position:absolute; top:0; left:0; width:4px; height:0; background:var(--gold); transition:0.4s}
+        .service-card{background:#fff;padding:60px;border:1px solid transparent;box-shadow:0 10px 30px rgba(0,0,0,0.02);transition:all 0.5s cubic-bezier(0.4, 0, 0.2, 1);position:relative;overflow:hidden}
         .service-card:hover{transform:translateY(-10px); box-shadow:0 20px 50px rgba(0,0,0,0.08); border-color:var(--border)}
-        .service-card:hover::after{height:100%}
         .service-card h3{font-family:'Noto Serif TC',serif;font-size:1.8rem;margin-bottom:30px;color:var(--gold)}
         .service-card li{margin-bottom:15px; padding-left:20px; position:relative; font-size:1.05rem; color:#444; list-style:none}
         .service-card li::before{content:''; position:absolute; left:0; top:12px; width:8px; height:1px; background:var(--gold)}
 
-        /* 深度佈局 */
+        /* 深度圖文 */
         .sub-feature-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
         .sub-content h3{font-family:'Noto Serif TC',serif;font-size:2.2rem;margin-bottom:30px}
         .sub-list li{margin-bottom:35px; list-style:none}
         .sub-list h4{color:var(--gold);font-family:'Noto Serif TC',serif;font-size:1.25rem;margin-bottom:10px}
         .sub-feature-grid img{width:100%; height:600px; object-fit:cover; box-shadow:0 25px 50px rgba(0,0,0,0.12)}
 
-        #trade-deep{background:var(--bg-warm)}
-
         /* 戰略賦能 */
         #bridge{background:var(--ink);color:#fff}
         .bridge-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
         .bridge-item h4{color:var(--gold);font-size:1.3rem;margin-bottom:12px;font-family:'Noto Serif TC',serif}
 
-        /* 願景 */
         #vision{padding:100px 60px; text-align:center; background:#fff}
-        .vision-line{width:40px; height:1px; background:var(--gold); margin:0 auto 30px}
-        .vision-title{font-family:'Noto Serif TC',serif; font-size:1.8rem; margin-bottom:15px; font-weight:400}
-        .vision-sub{font-size:0.8rem; color:#999; letter-spacing:0.3em}
-
         footer{background:var(--ink);color:#fff;padding:100px 60px 40px}
         .footer-disclaimer{font-size:0.8rem;color:rgba(255,255,255,0.35);border-top:1px solid rgba(255,255,255,0.1);margin-top:60px;padding-top:30px;line-height:1.8}
+
+        /* 響應式適配 */
+        @media (max-width: 1024px) {
+            :root { --section-pad: 80px; }
+            nav { padding: 0 15px; height: 74px; }
+            .nav-logo img { height: 50px; }
+            .nav-links { gap: 10px; }
+            .nav-links a { font-size: 0.72rem; letter-spacing: 0; }
+            .lang-switch { padding: 4px 8px; margin-left: 5px; gap: 4px; }
+            .lang-switch a { font-size: 0.7rem; }
+            section { padding: var(--section-pad) 25px; }
+            .hero-title { font-size: 2.2rem; }
+            .section-title { font-size: 1.8rem; }
+            .adv-grid, .services-grid, .sub-feature-grid, .bridge-grid { grid-template-columns: 1fr !important; gap: 40px; }
+            #trade-deep .sub-feature-grid { direction: ltr !important; }
+            #trade-deep .sub-content { direction: ltr !important; }
+            .sub-feature-grid img { height: 350px; }
+            .service-card { padding: 40px 25px; }
+            footer > div:first-child { grid-template-columns: 1fr !important; gap: 40px; text-align: center; }
+            div[style*="text-align:right"] { text-align: center !important; }
+        }
+        @media (max-width: 480px) {
+            .nav-links li:not(.lang-switch) { display: none; }
+            .nav-logo img { height: 48px; }
+        }
     </style>
 </head>
 <body>
@@ -100,7 +115,7 @@
     <div class="hero-content">
         <div class="hero-eyebrow">COMMERCE · CURATED TRAVEL · CULTURAL SYNERGY</div>
         <h1 class="hero-title">連接全球貿易<br><em>深耕精品旅行</em></h1>
-        <p style="color:rgba(255,255,255,0.75); max-width:600px; font-size:1.1rem;">依托深厚的歐洲本地資源網絡，為亞洲與歐洲客戶提供精準的跨境商貿對接與卓越的定制旅行方案。</p>
+        <p style="color:rgba(255,255,255,0.75); max-width:600px; font-size:1.1rem;">依托深厚的歐洲本地資源網絡，為亞洲與歐洲客戶提供精準的跨境貿易對接與卓越的定制旅行方案。</p>
     </div>
 </section>
 
@@ -125,7 +140,7 @@
         <div class="adv-item">
             <span class="adv-num">02</span>
             <h4>跨文化雙向賦能</h4>
-            <p>核心團隊具備深厚商務背景，精準解碼商業邏輯，消除文化隔閡帶來的資訊不對稱。</p>
+            <p>核心團隊具備深厚商務背景，精準解碼商業邏輯，消除文化隔閡帶來的信息不對稱。</p>
         </div>
         <div class="adv-item">
             <span class="adv-num">03</span>
@@ -166,7 +181,7 @@
         <div class="sub-content">
             <h3>精品定制行旅<br>重塑出行價值</h3>
             <p>我們通過對歐洲本土資源的深度整合，將每一次出行轉化為極具質感的私人定制體驗。</p>
-            <ul class="sub-list">
+            <ul class="sub-list" style="margin-top:30px;">
                 <li>
                     <h4>稀缺資源的直接觸達</h4>
                     <p>我們與歐洲各地的特色酒店、專業行業機構及資深地接團隊保持緊密協作，確保獲得一手資源保障。</p>
@@ -187,7 +202,7 @@
         <div class="sub-content" style="direction: ltr;">
             <h3>跨境商貿驅動<br>與全球資源整合</h3>
             <p>構建連接歐洲與亞洲市場的核心供應鏈體系，協助客戶在國際環境中實現資源價值的最優配置。</p>
-            <ul class="sub-list">
+            <ul class="sub-list" style="margin-top:30px;">
                 <li>
                     <h4>亞洲品牌的歐洲業務深耕</h4>
                     <p>助力亞洲品牌在歐洲市場建立穩健的供應鏈支撐與渠道對接，實現業務落地的本地化適應與長效增長。</p>
@@ -240,10 +255,13 @@
             <p>Suites 2202-03, 22/F, Tower 1, The Gateway, Harbour City, Hong Kong</p>
         </div>
     </div>
+    
     <div class="footer-disclaimer">
-        <strong>法律免責聲明：</strong> 良程國際提供跨境資源整合與商貿協同服務。具體的精品定制行旅方案由具備合法資質的第三方供應商執行，本公司在法律允許範圍內承擔相應的平台與項目管理責任。
-    </div>
+    <strong>法律免責聲明：</strong> 本公司提供跨境資源整合服務。涉及行旅執行環節（如交通、酒店、接待）均由具備合法資質的第三方供應商提供，本公司在法律範圍內承擔管理協調責任。
+</div>
+    
     <p style="text-align:center; opacity:0.1; font-size:0.7rem; margin-top:50px;">© 2026 LIANGCHENG INTERNATIONAL LIMITED. ALL RIGHTS RESERVED.</p>
 </footer>
+
 </body>
 </html>
